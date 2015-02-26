@@ -25,5 +25,5 @@ class AuthorAdmin(admin.ModelAdmin):
     
     inlines = [PostInline]"""
     
-admin.site.register(Link)
 admin.site.register(Tag)
+admin.site.register(Link)

@@ -11,9 +11,9 @@ from main.models import Tag
 def index(request):
     context = RequestContext(request)
     
-    link = Link.objects.all()
+    links = Link.objects.all()
     
-    return render_to_response('main/index.html', {'links':links},context)
+    return render_to_response('main/index.html', {'links':links}, context)
 
 def tags(request):
     context = RequestContext(request)
@@ -40,5 +40,5 @@ def add_link(request):
         tags = request.POST.get("tags","")
         title = request.POST.get("title","")
 
-return redirect(index)        
+    return redirect(index)        
 

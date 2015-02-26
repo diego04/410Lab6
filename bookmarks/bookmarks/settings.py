@@ -18,7 +18,7 @@ STATIC_PATH = os.path.abspath(os.path.join(BASE_DIR, 'static'))
 STATICFILES_DIRS = (STATIC_PATH,)
 
 
-TEMPLATE_PATH = os.path.abspath((os.path.join(BASE_DIR,'static')))
+TEMPLATE_PATH = os.path.abspath((os.path.join(BASE_DIR,'templates')))
 
 TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".

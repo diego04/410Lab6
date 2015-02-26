@@ -1,15 +1,17 @@
+{% load staticfiles %}
+
 <!DOCTYPE html>
 <html>
     <head>
         <title>Bookmarks</title>
         <link href='http://fonts.googleapis.com/css?family=Amarante' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href='http://fonts.googleapis.com/css?family=Frijole' type="text/css" />
-        <link rel="stylesheet" href="{% static /css/style.css %}" media="all" />
+        <link rel="stylesheet" href="{% static "css/style.css" %}" media="all" />
         <!-- rewrite paths with {% static 'js/...' %} -->
         
         
-        <script src="{% static "/js/jquery-1.11.0.min.js" %}"></script>
-        <script src="{% static "/js/script.js" %}"></script>
+        <script src="{% static "js/jquery-1.11.0.min.js" %}"></script>
+        <script src="{% static "js/script.js" %}"></script>
     </head>
     <body>
         <div id="wrapper">
@@ -31,7 +33,7 @@
                     </ul>
                 </div><!--
                 --><div id="content">
-                	{% for links in link%}
+                	{% for link in links %}
                     <div class="link">
                         <h4><a href="http://www.google.com">Google</a></h4>
                         <p class="tags">
@@ -43,6 +45,8 @@
                             {% endfor %}
                         </p>
                     </div>
+                                                {% endfor %}
+
                     <div class="link other">
                         <h4><a href="http://www.facebook.com">Facebook</a></h4>
                         <p class="tags">
