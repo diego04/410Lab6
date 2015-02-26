@@ -35,17 +35,17 @@
                 --><div id="content">
                 	{% for link in links %}
                     <div class="link">
-                        <h4><a href="http://www.google.com">Google</a></h4>
+                        <h4><a href="http://www.google.com">{{ link.title }}</a></h4>
                         <p class="tags">
                             <!--a href="#">tag1</a>
                             <a href="#">tag2</a>
                             <a href="#">tag3</a-->
-                            {% for tag in links.tags.all %}
-                             <a href="/bookmarks/tags/{{tag.name}}/"> tag.name</a>
+                            {% for tag in link.tags.all %}
+                             <a href="/bookmarks/tags/{{tag.name}}/">{{ tag.name }}</a>
                             {% endfor %}
                         </p>
                     </div>
-                                                {% endfor %}
+                    {% endfor %}
 
                     <div class="link other">
                         <h4><a href="http://www.facebook.com">Facebook</a></h4>

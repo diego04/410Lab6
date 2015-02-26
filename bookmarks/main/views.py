@@ -18,10 +18,10 @@ def index(request):
 def tags(request):
     context = RequestContext(request)
     
-    tags = Tag.object.all()
+    tags = Tag.objects.all()
     
     
-    return render_to_response('main/tags.html',{'tags':tags}, context)
+    return render_to_response('main/index.html',{'links':tags}, context)
 
 
 def tag(request):
@@ -39,6 +39,15 @@ def add_link(request):
         url = request.POST.get("url","")
         tags = request.POST.get("tags","")
         title = request.POST.get("title","")
+        #Link.title = title
+        #Link.url = url
+        #Link.tags = tags
+    
+        #Tag.name = tags
+        
+    
+        
+    
 
     return redirect(index)        
 

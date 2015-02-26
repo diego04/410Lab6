@@ -4,6 +4,16 @@ from main.models import Link, Tag
 
 # Register your models here.
 
+    
+admin.site.register(Link)
+admin.site.register(Tag)
+"""
+class LinkAdmin(admin.StackedInline):
+    model = Link
+    extra = 5
+class TagAdmin(admin.StackedInline):
+    model = Tag
+    extra = 5"""
 """
 class Linkmodelish(admin.StackedInline):
     model = Posts
@@ -25,5 +35,5 @@ class AuthorAdmin(admin.ModelAdmin):
     
     inlines = [PostInline]"""
     
-admin.site.register(Tag)
-admin.site.register(Link)
+#admin.site.register(TagAdmin)
+#admin.site.register(LinkAdmin)
