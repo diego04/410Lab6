@@ -3,10 +3,15 @@ from django.shortcuts import render_to_response
 from django.template import RequestContext
 from django.shortcuts import redirect
 
+from django.http import HttpResponseRedirect, HttpResponse
+from django.core.urlresolvers import reverse
+
+
 from main.models import Link
 from main.models import Tag
 
 # Create your views here.
+
 
 
 def index(request):
@@ -36,20 +41,21 @@ def tag(request, tag_name):
 
 def add_link(request):
     
-    context = RequestContext(request)
-    if request.method == 'Post':
-        url = request.POST.get("url","")
-        tags = request.POST.get("tags","")
-        title = request.POST.get("title","")
-        #Link.title = title
-        #Link.url = url
-        #Link.tags = tags
-    
-        #Tag.name = tags
-        
-    
-        
+    #context = RequestContext(request)
+    try:
+        if request.method == 'POST':
+            url = request.POST.get("url","")
+            tags = request.POST.get("tags","")
+            title = request.POST.get("title","")
+
+            l = Link.objects.get_or_create(title=title, url=url)[0]
+
+            for atag in tags.split():
+                t = Tag.objects.get_or_create(name=atag)[0]
+                l.tags.add(t)
+    except:
+            return redirect(index)
+
     
 
-    return redirect(index)        
-
+    return redirect(index)
